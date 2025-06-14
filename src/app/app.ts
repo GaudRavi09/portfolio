@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { TitleCasePipe } from '@angular/common';
 import { Sidebar } from './components/sidebar/sidebar';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
-  imports: [RouterOutlet, Sidebar],
+  imports: [Sidebar, RouterLink, RouterOutlet, TitleCasePipe],
 })
 export class App {}
