@@ -1,3 +1,4 @@
+import { Firebase } from '../../services/firebase';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -12,7 +13,10 @@ export class Contact implements OnInit {
   contactForm!: FormGroup;
   isFormSubmit = signal(false);
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private firebaseService: Firebase,
+  ) {}
 
   ngOnInit() {
     this.contactForm = this.fb.group({
@@ -26,7 +30,7 @@ export class Contact implements OnInit {
     this.isFormSubmit.set(true);
     if (this.contactForm.valid) {
       try {
-        console.log(this.contactForm.value);
+        await this.firebaseService.sendMessage(this.contactForm.value);
         this.contactForm.reset();
         this.isFormSubmit.set(false);
       } catch (err: any) {
