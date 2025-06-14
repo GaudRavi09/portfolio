@@ -1,0 +1,115 @@
+<aside class="sidebar" [ngClass]="{ active: showContacts() }">
+  <div class="sidebar-info">
+    <!-- profile photo -->
+    <figure class="avatar-box">
+      <img src="/images/profile-photo.jpg" [alt]="profile.name" width="80" loading="lazy" />
+    </figure>
+
+    <!-- name and title -->
+    <div class="info-content">
+      <h1 class="name" title="Gaud Ravi">{{ profile.name }}</h1>
+      <p class="title">{{ profile.title }}</p>
+    </div>
+
+    <!-- expand button only for mobile screen -->
+    <button class="info_more-btn" (click)="showContactsToggle()">
+      <span>Show Contacts</span>
+      <ion-icon name="chevron-down" />
+    </button>
+  </div>
+
+  <div class="sidebar-info_more">
+    <!-- separator -->
+    <div class="separator"></div>
+
+    <!-- email -->
+    <ul class="contacts-list">
+      <li class="contact-item">
+        <div class="icon-box">
+          <ion-icon name="mail-outline" />
+        </div>
+
+        <div class="contact-info">
+          <p class="contact-title">Email</p>
+          <a [href]="'mailto:' + profile.email" class="contact-link">{{ profile.email }}</a>
+        </div>
+      </li>
+
+      <!-- phone number -->
+      <li class="contact-item">
+        <div class="icon-box">
+          <ion-icon name="phone-portrait-outline" />
+        </div>
+
+        <div class="contact-info">
+          <p class="contact-title">Phone</p>
+          <a [href]="'tel:' + profile.phone" class="contact-link">{{ profile.phone }}</a>
+        </div>
+      </li>
+
+      <!-- birthday -->
+      <li class="contact-item">
+        <div class="icon-box">
+          <ion-icon name="calendar-outline" />
+        </div>
+
+        <div class="contact-info">
+          <p class="contact-title">Birthday</p>
+          <time>{{ profile.dob | date: 'MMMM d, y' }}</time>
+        </div>
+      </li>
+
+      <!-- address -->
+      <li class="contact-item">
+        <div class="icon-box">
+          <ion-icon name="location-outline" />
+        </div>
+
+        <div class="contact-info">
+          <p class="contact-title">Location</p>
+          <address>{{ profile.address }}</address>
+        </div>
+      </li>
+    </ul>
+
+    <!-- separator -->
+    <div class="separator"></div>
+
+    <ul class="social-list">
+      <!-- stackoverflow -->
+      <li class="social-item">
+        <a [href]="profile.socials.stackoverflow" target="_blank" class="social-link">
+          <ion-icon name="logo-stackoverflow" />
+        </a>
+      </li>
+
+      <!-- linkedin -->
+      <li class="social-item">
+        <a [href]="profile.socials.linkedin" target="_blank" class="social-link">
+          <ion-icon name="logo-linkedin" />
+        </a>
+      </li>
+
+      <!-- twitter -->
+      <li class="social-item">
+        <a [href]="profile.socials.twitter" target="_blank" class="social-link">
+          <ion-icon name="logo-twitter" />
+        </a>
+      </li>
+
+      <!-- instagram -->
+      <li class="social-item">
+        <a [href]="profile.socials.instagram" target="_blank" class="social-link">
+          <ion-icon name="logo-instagram" />
+        </a>
+      </li>
+
+      <!-- facebook -->
+      <li class="social-item">
+        <a [href]="profile.socials.facebook" target="_blank" class="social-link">
+          <ion-icon name="logo-facebook" />
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>
