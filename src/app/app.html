@@ -10,7 +10,12 @@
         @for (page of ['', 'resume', 'project', 'contact']; track $index) {
           <li class="navbar-item">
             <!-- active router link highlights current page -->
-            <button class="navbar-link" [routerLink]="page" routerLinkActive="active">
+            <button
+              class="navbar-link"
+              [routerLink]="page"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+            >
               {{ page === '' ? 'About' : (page | titlecase) }}
             </button>
           </li>

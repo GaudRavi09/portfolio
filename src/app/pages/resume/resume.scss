@@ -1,0 +1,50 @@
+.download-button {
+    right: 0px;
+    z-index: 1;
+    bottom: 60px;
+    width: 100px;
+    position: fixed;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    cursor: pointer;
+    animation-play-state: paused;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px) rotate(5deg);
+    }
+
+    50% {
+        transform: translateX(5px) rotate(-5deg);
+    }
+
+    75% {
+        transform: translateX(-5px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
