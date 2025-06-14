@@ -7,11 +7,11 @@
     <!-- top navigation bar with links to different sections -->
     <nav class="navbar">
       <ul class="navbar-list">
-        @for (page of ['about', 'resume', 'project', 'contact']; track $index) {
+        @for (page of ['', 'resume', 'project', 'contact']; track $index) {
           <li class="navbar-item">
             <!-- active router link highlights current page -->
-            <button class="navbar-link" routerLinkActive="active" [routerLink]="page">
-              {{ page | titlecase }}
+            <button class="navbar-link" [routerLink]="page" routerLinkActive="active">
+              {{ page === '' ? 'About' : (page | titlecase) }}
             </button>
           </li>
         }
