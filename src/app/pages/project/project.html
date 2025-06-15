@@ -1,0 +1,22 @@
+<article class="portfolio active">
+  <header>
+    <h2 class="h2 article-title">Projects</h2>
+  </header>
+
+  <section class="projects">
+    <ul class="project-list">
+      @for (project of projects; track $index) {
+        <li class="project-item active">
+          <a>
+            <figure class="project-img">
+              <img [src]="project.image" [alt]="project.name" loading="lazy" />
+            </figure>
+
+            <h3 class="project-title">{{ project.name }}</h3>
+            <p class="project-category">{{ project.subHeading }}</p>
+          </a>
+        </li>
+      }
+    </ul>
+  </section>
+</article>
